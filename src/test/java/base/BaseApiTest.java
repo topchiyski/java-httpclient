@@ -33,6 +33,12 @@ public class BaseApiTest {
      * Maximum time allowed for an individual HTTP request.
      */
     protected static final Duration REQUEST_TIMEOUT = Duration.ofSeconds(10);
+    /**
+     * Hard deadline in milliseconds for a whole test, for use with {@code @Test(timeOut = TEST_TIMEOUT_MS)}.
+     * {@link #REQUEST_TIMEOUT} only covers the status line and headers; a server that stalls
+     * while sending the body can otherwise hang the test forever.
+     */
+    protected static final long TEST_TIMEOUT_MS = 15_000L;
 
     // Reusable HTTP status code constants for clean assertions
     /**
