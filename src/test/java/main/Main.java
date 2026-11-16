@@ -2,6 +2,7 @@ package main;
 
 import org.testng.TestNG;
 import tests.CreateUserPostTest;
+import tests.HardDeadlineTest;
 import tests.HeaderCheckTest;
 import tests.SimpleGetTest;
 import tests.StatusCheckTest;
@@ -20,6 +21,7 @@ public class Main {
         TestNG testng = new TestNG();
         testng.setTestClasses(new Class[]{
                 CreateUserPostTest.class,
+                HardDeadlineTest.class,
                 HeaderCheckTest.class,
                 SimpleGetTest.class,
                 StatusCheckTest.class
