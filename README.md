@@ -75,7 +75,7 @@ public class HeaderCheckTest extends BaseApiTest {
 
 ### Prerequisites
 
-- JDK 21 or newer
+- JDK 21 or newer (CI runs the tests on JDK 21 and 25)
 - Internet access (the tests call `https://httpbingo.org`, and the first run downloads Maven and the dependencies)
 
 The Maven Wrapper downloads Maven automatically; a separate Maven installation is not required. On Windows, use `.\mvnw.cmd` instead of `./mvnw`.
