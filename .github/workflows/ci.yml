@@ -10,11 +10,13 @@ permissions:
 
 jobs:
   test:
-    name: Tests (${{ matrix.os }})
+    name: Tests (${{ matrix.os }}, JDK ${{ matrix.java }})
     strategy:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest]
+        # 21 is the minimum the README promises; 25 is the latest LTS, so "or newer" stays tested.
+        java: ['21', '25']
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v7
@@ -22,7 +24,7 @@ jobs:
       - uses: actions/setup-java@v6
         with:
           distribution: temurin
-          java-version: '21'
+          java-version: ${{ matrix.java }}
           cache: maven
 
       # Each runner uses the wrapper script its OS ships, so both README instructions stay tested.
